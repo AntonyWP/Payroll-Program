@@ -1,0 +1,687 @@
+1                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+0 
+ 15.59.38 JOB04053 ---- TUESDAY,   07 AUG 2018 ----
+ 15.59.38 JOB04053  IRR010I  USERID KC03GAE  IS ASSIGNED TO THIS JOB.
+ 15.59.38 JOB04053  ICH70001I KC03GAE  LAST ACCESS AT 15:58:09 ON TUESDAY, AUGUST 7, 2018
+ 15.59.38 JOB04053  $HASP373 KC03GAEA STARTED - INIT 2    - CLASS A        - SYS S0W1
+ 15.59.38 JOB04053  -                                         --TIMINGS (MINS.)--            ----PAGING COUNTS---
+ 15.59.38 JOB04053  -JOBNAME  STEPNAME PROCSTEP    RC   EXCP    TCB    SRB  CLOCK   SERV  PG   PAGE   SWAP    VIO SWAPS
+ 15.59.38 JOB04053  -KC03GAEA                      00     67 ******    .00     .0    258   0      0      0      0     0
+ 15.59.38 JOB04053  -KC03GAEA ENDED.  NAME-ANTONY PIERSON       TOTAL TCB CPU TIME=   .00  TOTAL ELAPSED TIME=    .0
+ 15.59.38 JOB04053  $HASP395 KC03GAEA ENDED
+0------ JES2 JOB STATISTICS ------
+-  07 AUG 2018 JOB EXECUTION DATE
+-          539 CARDS READ
+-          683 SYSOUT PRINT RECORDS
+-            0 SYSOUT PUNCH RECORDS
+-           62 SYSOUT SPOOL KBYTES
+-         0.00 MINUTES EXECUTION TIME
+ !! END OF JES SPOOL FILE !!
+        1 //KC03GAEA JOB ,'ANTONY PIERSON',MSGCLASS=H                             JOB04053
+        2 //JSTEP01  EXEC PGM=ASSIST                                                      
+        3 //STEPLIB  DD DSN=KC00NIU.ASSIST.LOADLIB,DISP=SHR                               
+        4 //SYSPRINT DD SYSOUT=*                                                          
+        5 //SYSIN    DD *                                                                 
+          //*                                                                             
+        6 //FT05F001 DD DSN=KC02322.CSCI360.DATASP18(DATA9),DISP=SHR                      
+          //*                                                                             
+        7 //FT06F001 DD SYSOUT=*                                                          
+          //*                                                                             
+        8 //SYSPRINT DD SYSOUT=*                                                          
+ !! END OF JES SPOOL FILE !!
+ ICH70001I KC03GAE  LAST ACCESS AT 15:58:09 ON TUESDAY, AUGUST 7, 2018
+ IEF236I ALLOC. FOR KC03GAEA JSTEP01
+ IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+ IEF237I JES2 ALLOCATED TO SYSPRINT
+ IEF237I JES2 ALLOCATED TO SYSIN
+ IGD103I SMS ALLOCATED TO DDNAME FT05F001
+ IEF237I JES2 ALLOCATED TO FT06F001
+ IEF237I JES2 ALLOCATED TO SYSPRINT
+ IEF142I KC03GAEA JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+ IGD104I KC00NIU.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+ IEF285I   KC03GAE.KC03GAEA.JOB04053.D0000102.?         SYSOUT        
+ IEF285I   KC03GAE.KC03GAEA.JOB04053.D0000101.?         SYSIN         
+ IGD104I KC02322.CSCI360.DATASP18                     RETAINED,  DDNAME=FT05F001
+ IEF285I   KC03GAE.KC03GAEA.JOB04053.D0000103.?         SYSOUT        
+ IEF285I   KC03GAE.KC03GAEA.JOB04053.D0000104.?         SYSOUT        
+ IEF373I STEP/JSTEP01 /START 2018219.1559
+ IEF032I STEP/JSTEP01 /STOP  2018219.1559 
+         CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+         VIRT:   584K  SYS:   268K  EXT:        0K  SYS:    12008K
+         ATB- REAL:                    12K  SLOTS:                     0K
+              VIRT- ALLOC:       2M SHRD:       0M
+ IEF375I  JOB/KC03GAEA/START 2018219.1559
+ IEF033I  JOB/KC03GAEA/STOP  2018219.1559 
+         CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+ !! END OF JES SPOOL FILE !!
+1*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+0                                                                                                                                    
+0                                                                                                               PAGE    1            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                       1 ********************************************************************                        
+                                       2 *                                                                  *                        
+                                       3 *       ASSIGNMENT11                                               *                        
+                                       4 *                                                                  *                        
+                                       5 * PROGRAMMER NAME: ANTONY PIERSON                                  *                        
+                                       6 *                                                                  *                        
+                                       7 * DATE DUE:        05/09/2018                                      *                        
+                                       8 *                                                                  *                        
+                                       9 * PROGRAM NAME:    MAIN                                            *                        
+                                      10 *                                                                  *                        
+                                      11 * FUNCTION:        AN ASSEMBLER PROGRAM TO CALCULATE PAYROLL FOR   *                        
+                                      12 *                  A BUSINESS.EACH EMPLOYEE HAS AN HOURLY PAY RATE,*                        
+                                      13 *                  NUMBER OF HOURS WORKED IN THE PAY PERIOD, A     *                        
+                                      14 *                  DEDUCTION AMOUNT AND, IF EARNED, A BONUS AMOUNT.*                        
+                                      15 *                  EACH EMPLOYEE HAS A NAME AND EMPLOYEE ID NUMBER *                        
+                                      16 *                                                                  *                        
+                                      17 * INPUT:           EMPLOYEE ID NUMBER, HOURLY PAY RATE, NUMBER OF  *                        
+                                      18 *                  HOURS WORKED IN THE PAY PERIOD, DEDUCTION AMOUNT*                        
+                                      19 *                  AND BONUS AMOUNT, WITH THE THREE DOLLAR AMOUNTS *                        
+                                      20 *                  ROUNDED TO THE WHOLE DOLLAR.                    *                        
+                                      21 *                                                                  *                        
+                                      22 * OUTPUT:          THE EMPLOYEE'S NAME, EMPLOYEE ID NUMBER, HOURLY *                        
+                                      23 *                  PAY RATE, NUMBER OF HOURS WORKED, DEDUCTION     *                        
+                                      24 *                  AMOUNT, BONUS AMOUNT, AND, FINALLY, THE GROSS   *                        
+                                      25 *                  PAY AMOUNT                                      *                        
+                                      26 *                                                                  *                        
+                                      27 * ENTRY CONDS:     NONE                                            *                        
+                                      28 *                                                                  *                        
+                                      29 * REGISTER USAGE:  R4 - R12                                        *                        
+                                      30 *                                                                  *                        
+                                      31 * EXIT CONDS:      NONE                                            *                        
+                                      32 *                                                                  *                        
+                                      33 * NOTES:           NONE                                            *                        
+                                      34 *                                                                  *                        
+                                      35 ********************************************************************                        
+                                      37 *                                                                                           
+ 000000                               38 $ENTRY   DSECT                          INPUT RECORD                                        
+ 000000                               39 $EMPID   DS    ZL8                      INPUT EMPLOYEE ID                                   
+ 000008                               40 $HRPAY   DS    ZL5                      INPUT PAY RATE                                      
+ 00000D                               41 $HOURS   DS    ZL5                      INPUT HOURS WORKED                                  
+ 000012                               42 $DEDUCT  DS    ZL5                      INPUT DEDUCTIONS                                    
+ 000017                               43 $BONUS   DS    ZL5                      INPUT BONUSES                                       
+ 00001C                               44 $EMPNME  DS    CL25                     INPUT EMPLOYEE NAME                                 
+                                      45 *                                                                                           
+ 000000                               46 PAYROLL  CSECT                                                                              
+ 000000 90EC D00C            0000C    47          STM   14,12,12(13)    SAVE REGS IN CALLER'S SAVE AREA                              
+ 000004 18CF                          48          LR    12,15           COPY CSECT ADDRESS INTO R12                                  
+ 000000                               49          USING PAYROLL,12      ESTABLISH R12 AS THE BASE REG                                
+ 000006 41E0 C290            00290    50          LA    14,PAYSAVE      R14 POINTS TO THIS CSECT'S SAVE AREA                         
+ 00000A 50E0 D008            00008    51          ST    14,8(,13)       STORE ADDRESS OF THIS CSECT'S SAVE AREA                      
+ 00000E 50D0 E004            00004    52          ST    13,4(,14)       STORE ADDRESS OF CALLER'S SAVE AREA                          
+ 000012 18DE                          53          LR    13,14           POINT R13 AT THIS CSECT'S SAVE AREA                          
+1                                                                                                               PAGE    2            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+ 000014 18BC                          54          LR    11,12                                                                        
+                                      55 *                                                                                           
+ 000016 41B0 BFFF            00FFF    56          LA    11,4095(,11)                                                                 
+ 00001A 41B0 B001            00001    57          LA    11,1(,11)                                                                    
+ 001000                               58          USING PAYROLL+4096,11                                                              
+                                      59 *                                                                                           
+ 00001E 58A0 C210            00210    60          L     10,=F'15'                                                                    
+                                      61 *                                                                                           
+ 000022 4110 B7C8            017C8    62          LA    1,TBLPARM              POINT TO PARAMETER LIST                               
+ 000026 58F0 C214            00214    63          L     15,=V(BUILDTBL)        PUT ADDRESS OF SUBROUTINE INTO R5                     
+ 00002A 05EF                          64          BALR  14,15                                                                        
+                                      65 *                                                                                           
+ 000000                               66          USING $ENTRY,2               DSECT FOR TABLE ENTRY                                 
+                                      67 *                                                                                           
+ 00002C 4120 C2D8            002D8    68          LA    2,EMPLTBL              R2 -> FIRST TABLE ENTRY                               
+ 000030 F872 B820 B7D0 01820 017D0    69          ZAP   PCVB(8),PEMPCTR(3)     COPY NUMBER OF EMPLOYEES                              
+ 000036 4F30 B820            01820    70          CVB   3,PCVB                 R5 NOW HOLDS                                          
+                                      71 *                                                                                           
+ 00003A F247 B7E2 2000 017E2 00000    72 LOOP1    PACK  PEMPID(5),$EMPID(8)    PACK EMPLOYEE ID                                      
+ 000040 D218 B839 201C 01839 0001C    73          MVC   OEMPNME(25),$EMPNME    PUT NAME ON OUTPUT LINE                               
+ 000046 F224 B7E7 2008 017E7 00008    74          PACK  PHRPAY(3),$HRPAY(5)    PACK HOURLY PAY RATE                                  
+ 00004C F224 B7EA 200D 017EA 0000D    75          PACK  PHOURS(3),$HOURS(5)    PACK HOURS WORKED                                     
+ 000052 F224 B7ED 2012 017ED 00012    76          PACK  PDEDUCT(3),$DEDUCT(5)  PACK DEDUCTION AMOUNT                                 
+ 000058 F224 B7F0 2017 017F0 00017    77          PACK  PBONUS(3),$BONUS(5)    PACK BONUS AMOUNT                                     
+                                      78 *                                                                                           
+ 00005E 4110 B790            01790    79          LA    1,PAYPARM              POINT TO PARAMETER LIST                               
+ 000062 58F0 C218            00218    80          L     15,=V(CALCPAY)         PUT ADDRESS OF SUBROUTINE INTO R5                     
+ 000066 05EF                          81          BALR  14,15                                                                        
+                                      82 *                                                                                           
+                                      83 *  ADD DEDUCTIONS, BONUSES AND GROSS PAY TO TOTALS OF EACH                                  
+                                      84 *                                                                                           
+ 000068 FA32 B7D3 B7ED 017D3 017ED    85          AP    PTOTDED(4),PDEDUCT(3)  ADD EACH DEDUCTION TO TOTAL                           
+ 00006E FA32 B7D7 B7F0 017D7 017F0    86          AP    PTOTBON(4),PBONUS(3)   ADD EACH BONUS TO TOTAL                               
+ 000074 FA65 B7DB B7F3 017DB 017F3    87          AP    PTOTGRP(7),PGRPAY(6)   ADD PAY AMOUNTS TO TOTAL                              
+                                      88 *                                                                                           
+ 00007A D209 B828 C224 01828 00224    89          MVC   OEMPID(10),=X'40212020202020202020'   EDIT PATTERN                           
+ 000080 DE09 B828 B7E2 01828 017E2    90          ED    OEMPID(10),PEMPID                     EDIT EMPLOYEE ID                       
+ 000086 92F0 B828      01828          91          MVI   DETAIL1,C'0'                                                                 
+                                      92 *                                                                                           
+ 00008A 4110 B85D            0185D    93          LA    1,OHRPAY+3               POINT 1 AT BYTE BEFORE DECIMAL                      
+ 00008E D206 B85A C250 0185A 00250    94          MVC   OHRPAY(7),=X'402021204B2020'  MOVE IN EDIT PATTERN                           
+ 000094 DF06 B85A B7E7 0185A 017E7    95          EDMK  OHRPAY(7),PHRPAY              EDIT AND MARK PAY RATE                         
+ 00009A 0610                          96          BCTR  1,0                           DECREMENT REGISTER 1                           
+ 00009C 925B 1000      00000          97          MVI   0(1),C'$'                     PLACE DOLLAR SIGN                              
+                                      98 *                                                                                           
+ 0000A0 D206 B869 C250 01869 00250    99          MVC   OHOURS(7),=X'402021204B2020'  MOVE IN EDIT PATTERN                           
+ 0000A6 DE06 B869 B7EA 01869 017EA   100          ED    OHOURS(7),PHOURS              EDIT HOURS WORKED                              
+ 0000AC 0610                         101          BCTR  1,0                           DECREMENT REGISTER 1                           
+ 0000AE 92F0 B828      01828         102          MVI   DETAIL1,C'0'                                                                 
+                                     103 *                                                                                           
+ 0000B2 4110 B87E            0187E   104          LA    1,ODEDUCT+3              POINT 1 AT BYTE BEFORE DECIMAL                      
+ 0000B6 D206 B87B C250 0187B 00250   105          MVC   ODEDUCT(7),=X'402021204B2020' MOVE IN EDIT PATTERN                           
+ 0000BC DF06 B87B B7ED 0187B 017ED   106          EDMK  ODEDUCT(7),PDEDUCT            EDIT AND MARK DEDUCTIONS                       
+ 0000C2 0610                         107          BCTR  1,0                           DECREMENT REGISTER 1                           
+ 0000C4 925B 1000      00000         108          MVI   0(1),C'$'                     PLACE DOLLAR SIGN                              
+                                     109 *                                                                                           
+ 0000C8 4110 B890            01890   110          LA    1,OBONUS+3               POINT 1 AT BYTE BEFORE DECIMAL                      
+1                                                                                                               PAGE    3            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+ 0000CC D206 B88D C250 0188D 00250   111          MVC   OBONUS(7),=X'402021204B2020'  MOVE IN EDIT PATTERN                           
+ 0000D2 DF06 B88D B7F0 0188D 017F0   112          EDMK  OBONUS(7),PBONUS              EDIT AND MARK BONUSES                          
+ 0000D8 0610                         113          BCTR  1,0                           DECREMENT REGISTER 1                           
+ 0000DA 925B 1000      00000         114          MVI   0(1),C'$'                     PLACE DOLLAR SIGN                              
+                                     115 *                                                                                           
+ 0000DE 4110 B8A9            018A9   116          LA    1,OGRPAY+11              POINT 1 AT BYTE BEFORE DECIMAL                      
+ 0000E2 D20E B89E C257 0189E 00257   117          MVC   OGRPAY(15),=X'402020206B2020206B2021204B2020'                                
+ 0000E8 DF0E B89E B7F3 0189E 017F3   118          EDMK  OGRPAY(15),PGRPAY             EDIT AND MARK PAY RATE                         
+ 0000EE 0610                         119          BCTR  1,0                           DECREMENT REGISTER 1                           
+ 0000F0 925B 1000      00000         120          MVI   0(1),C'$'                     PLACE DOLLAR SIGN                              
+                                     121 *                                                                                           
+ 0000F4 59A0 C210            00210   122          C     10,=F'15'              CHECK IF LINE COUNTER EQUALS 15                       
+ 0000F8 4740 C12E            0012E   123          BL    NOHDRS                 BRACH TO NEXT RECORD IF < 15                          
+                                     124 *                                                                                           
+ 0000FC FA10 B7F9 C266 017F9 00266   125          AP    PPNUM,=PL1'1'          INCREMENT PAGE NUMBER BY 1                            
+ 000102 D205 BA3A C21C 01A3A 0021C   126          MVC   OPNUM(6),=X'40202120'  MOVE IN EDIT PATTERN                                  
+ 000108 DE05 BA3A B7F9 01A3A 017F9   127          ED    OPNUM(6),PPNUM         EDIT PAGE NUMBER                                      
+                                     128 *                                                                                           
+ 00010E E020 B933 0085 01933         129          XPRNT TITLEH,133             PRINT TITLE HEADER                                    
+ 000114 E020 B9B9 0085 019B9         130          XPRNT PAGENUM,133            PRINT PAGE NUMBER                                     
+ 00011A E020 BA3F 0085 01A3F         131          XPRNT COLHDR1,133            PRINT COLUMN HEADER                                   
+ 000120 E020 BAC5 0085 01AC5         132          XPRNT COLHDR2,133            PRINT COLUMN HEADER                                   
+ 000126 E020 BB4B 0085 01B4B         133          XPRNT HYPHENS1,133           PRINT FIRST HYPHENS LINE                              
+                                     134 *                                                                                           
+ 00012C 1BAA                         135          SR    10,10                  CLEAR LINE COUNTER                                    
+                                     136 *                                                                                           
+ 00012E E020 B828 0085 01828         137 NOHDRS   XPRNT DETAIL1,133            PRINT EMPLOYEE DETAIL RECORD                          
+                                     138 *                                                                                           
+ 000134 41A0 A001            00001   139          LA    10,1(,10)              INCREMENT LINE COUNTER BY 1                           
+                                     140 *                                                                                           
+ 000138 4120 2035            00035   141          LA    2,53(,2)               INCREMENT TABLE POINTER                               
+                                     142 *                                                                                           
+ 00013C 4630 C03A            0003A   143          BCT   3,LOOP1                DECREMENTS R3 AND CHECKS IF > 0                       
+                                     144 *                                                                                           
+ 000140 D206 B8BC C267 018BC 00267   145 ENDLOOP1 MVC   OEMPCTR(7),=X'40202020202120'                                                
+ 000146 DE06 B8BC B7D0 018BC 017D0   146          ED    OEMPCTR(7),PEMPCTR       EDIT AND MARK EMPLOYEE COUNTER                      
+                                     147 *                                                                                           
+ 00014C 4110 B900            01900   148          LA    1,OTOTDED+3              POINT 1 AT BYTE BEFORE DECIMAL                      
+ 000150 D209 B8FD C22E 018FD 0022E   149          MVC   OTOTDED(10),=X'4020206B2021204B2020'                                         
+ 000156 DF09 B8FD B7D3 018FD 017D3   150          EDMK  OTOTDED(10),PTOTDED      EDIT AND MARK TOTAL DEDUCTIONS                      
+ 00015C 0610                         151          BCTR  1,0                      DECREMENT REGISTER 1                                
+ 00015E 925B 1000      00000         152          MVI   0(1),C'$'                PLACE DOLLAR SIGN                                   
+                                     153 *                                                                                           
+ 000162 4110 B912            01912   154          LA    1,OTOTBON+3              POINT 1 AT BYTE BEFORE DECIMAL                      
+ 000166 D209 B90F C238 0190F 00238   155          MVC   OTOTBON(10),=X'4020206B2020214B2020'                                         
+ 00016C DF09 B90F B7D7 0190F 017D7   156          EDMK  OTOTBON(10),PTOTBON      EDIT AND MARK TOTAL BONUSES                         
+ 000172 0610                         157          BCTR  1,0                      DECREMENT REGISTER 1                                
+ 000174 925B 1000      00000         158          MVI   0(1),C'$'                PLACE DOLLAR SIGN                                   
+                                     159 *                                                                                           
+ 000178 4110 B92E            0192E   160          LA    1,OTOTGRP+10             POINT 1 AT BYTE BEFORE DECIMAL                      
+ 00017C D20D B924 C242 01924 00242   161          MVC   OTOTGRP(14),=X'402020202020206B2020214B2020'                                 
+ 000182 DF0D B924 B7DC 01924 017DC   162          EDMK  OTOTGRP(14),PTOTGRP+1    EDIT AND MARK TOTAL GROSS PAY                       
+ 000188 0610                         163          BCTR  1,0                      DECREMENT REGISTER 1                                
+ 00018A 925B 1000      00000         164          MVI   0(1),C'$'                PLACE DOLLAR SIGN                                   
+                                     165 *                                                                                           
+ 00018E 4110 B7A8            017A8   166          LA    1,AVGPARM1            POINT TO PARAMETER LIST                                
+ 000192 58F0 C220            00220   167          L     15,=V(CALCAVGS)       PUT ADDRESS OF SUBROUTINE INTO R5                      
+1                                                                                                               PAGE    4            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+ 000196 05EF                         168          BALR  14,15                                                                        
+                                     169 *                                                                                           
+ 000198 4110 BCA7            01CA7   170          LA    1,AVEDED+3               POINT 1 AT BYTE BEFORE DECIMAL                      
+ 00019C D20C BCA4 C26E 01CA4 0026E   171          MVC   AVEDED(13),=X'40206B2020206B2021204B2020'                                    
+ 0001A2 DF0C BCA4 B7FE 01CA4 017FE   172          EDMK  AVEDED(13),TDI           EDIT AND MARK TOTAL DEDUCTIONS                      
+ 0001A8 0610                         173          BCTR  1,0                      DECREMENT REGISTER 1                                
+ 0001AA 925B 1000      00000         174          MVI   0(1),C'$'                PLACE DOLLAR SIGN                                   
+                                     175 *                                                                                           
+ 0001AE 4110 B7A8            017A8   176          LA    1,AVGPARM1             POINT TO PARAMETER LIST                               
+ 0001B2 58F0 C220            00220   177          L     15,=V(CALCAVGS)        PUT ADDRESS OF SUBROUTINE INTO R5                     
+ 0001B6 05EF                         178          BALR  14,15                                                                        
+                                     179 *                                                                                           
+ 0001B8 4110 BCB9            01CB9   180          LA    1,AVEBON+3               POINT 1 AT BYTE BEFORE DECIMAL                      
+ 0001BC D20C BCB6 C26E 01CB6 0026E   181          MVC   AVEBON(13),=X'40206B2020206B2021204B2020'                                    
+ 0001C2 DF0C BCB6 B806 01CB6 01806   182          EDMK  AVEBON(13),TDI2          EDIT AND MARK AVG BONUSES                           
+ 0001C8 0610                         183          BCTR  1,0                      DECREMENT REGISTER 1                                
+ 0001CA 925B 1000      00000         184          MVI   0(1),C'$'                PLACE DOLLAR SIGN                                   
+                                     185 *                                                                                           
+ 0001CE 4110 B7A8            017A8   186          LA    1,AVGPARM1             POINT TO PARAMETER LIST                               
+ 0001D2 58F0 C220            00220   187          L     15,=V(CALCAVGS)        PUT ADDRESS OF SUBROUTINE INTO R5                     
+ 0001D6 05EF                         188          BALR  14,15                                                                        
+                                     189 *                                                                                           
+ 0001D8 4110 BCD1            01CD1   190          LA    1,AVEG+10                POINT 1 AT BYTE BEFORE DECIMAL                      
+ 0001DC D214 BCC7 C27B 01CC7 0027B   191          MVC   AVEG(21),=X'40206B2020206B2020206B2020206B2021204B2020'                      
+ 0001E2 DF14 BCC7 B80E 01CC7 0180E   192          EDMK  AVEG(21),TDI3            EDIT AND MARK AVG GROSS PAY                         
+ 0001E8 0610                         193          BCTR  1,0                      DECREMENT REGISTER 1                                
+ 0001EA 925B 1000      00000         194          MVI   0(1),C'$'                PLACE DOLLAR SIGN                                   
+                                     195 *                                                                                           
+ 0001EE E020 BBD1 0085 01BD1         196          XPRNT HYPHENS2,133             PRINT BOTTOM HYPHENS                                
+ 0001F4 E020 B8AD 0085 018AD         197          XPRNT TOTALS1,133              PRINT BOTTOM TOTALS                                 
+ 0001FA E020 BC57 0085 01C57         198          XPRNT AVELINE,133              PRINT AVERAGES LINE                                 
+                                     199 *                                                                                           
+ 000200 1BFF                         200          SR    15,15                    R15 = RETURN CODE OF 0                              
+ 000202 58D0 D004            00004   201          L     13,4(,13)                POINT R13 TO CALLER'S SAVE AREA                     
+ 000206 58E0 D00C            0000C   202          L     14,12(,13)               RESTORE REGISTER 14                                 
+ 00020A 980C D014            00014   203          LM    0,12,20(13)              RESTORE R0 THRU R12                                 
+ 00020E 07FE                         204          BR    14                       RETURN TO CALLER                                    
+                                     205 *                                                                                           
+                                     206          LTORG                                                                              
+ 000210 0000000F                     207                =F'15'                                                                       
+ 000214 00001E38                     208                =V(BUILDTBL)                                                                 
+ 000218 00001CE0                     209                =V(CALCPAY)                                                                  
+ 00021C 40202120                     210                =X'40202120'                                                                 
+ 000220 00001D70                     211                =V(CALCAVGS)                                                                 
+ 000224 4021202020202020             212                =X'40212020202020202020'                                                     
+ 00022E 4020206B2021204B             213                =X'4020206B2021204B2020'                                                     
+ 000238 4020206B2020214B             214                =X'4020206B2020214B2020'                                                     
+ 000242 402020202020206B             215                =X'402020202020206B2020214B2020'                                             
+ 000250 402021204B2020               216                =X'402021204B2020'                                                           
+ 000257 402020206B202020             217                =X'402020206B2020206B2021204B2020'                                           
+ 000266 1C                           218                =PL1'1'                                                                      
+ 000267 40202020202120               219                =X'40202020202120'                                                           
+ 00026E 40206B2020206B20             220                =X'40206B2020206B2021204B2020'                                               
+ 00027B 40206B2020206B20             221                =X'40206B2020206B2020206B2020206B2021204B2020'                               
+                                     222 *                                                                                           
+ 000290 FFFFFFFFFFFFFFFF             223 PAYSAVE  DC    18F'-1'                  REGISTER SAVE AREA                                  
+                                     224 *                                                                                           
+1                                                                                                               PAGE    5            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                     225 *************************                                                                   
+                                     226 * PACKED DECIMAL FIELDS *                                                                   
+                                     227 *************************                                                                   
+ 0002D8 7C40404040404040             228 EMPLTBL  DC    100CL53'@'              ADDRESS OF TABLE                                     
+ 00178C 00001CE0                     229 CALPAY   DC    V(CALCPAY)                                                                   
+ 001790 000017F3000017EA             230 PAYPARM  DC    A(PGRPAY,PHOURS,PDEDUCT,PBONUS,PHRPAY)                                       
+ 0017A4 00001D70                     231 CALAVG   DC    V(CALCAVGS)                                                                  
+ 0017A8 000017D3000017FB             232 AVGPARM1 DC    A(PTOTDED,TEMPCTR,TDI,PEMPCTR,PTOTBON,PTOTGRP,TDI2,TDI3)                     
+ 0017C8 000002D8000017D0             233 TBLPARM  DC    A(EMPLTBL,PEMPCTR)                                                           
+ 0017D0 00000C                       234 PEMPCTR  DC    PL3'0'              PACKED EMPLOYEE COUNTER                                  
+ 0017D3 0000000C                     235 PTOTDED  DC    PL4'0'              PACKED TOTAL DEDUCTONS                                   
+ 0017D7 0000000C                     236 PTOTBON  DC    PL4'0'              PACKED TOTAL BONUSES                                     
+ 0017DB 0000000000000C               237 PTOTGRP  DC    PL7'0'              PACKED TOTAL GROSS PAY                                   
+                                     238 *                                                                                           
+ 0017E2 000000000C                   239 PEMPID   DC    PL5'0'              PACKED EMPLOYEE ID                                       
+ 0017E7 00000C                       240 PHRPAY   DC    PL3'0'              PACKED HOURLY PAY RATE                                   
+ 0017EA 00000C                       241 PHOURS   DC    PL3'0'              PACKED HOURS WORKED                                      
+ 0017ED 00000C                       242 PDEDUCT  DC    PL3'0'              PACKED DEDUCTION AMOUNT                                  
+ 0017F0 00000C                       243 PBONUS   DC    PL3'0'              PACKED BONUS AMOUNT                                      
+ 0017F3 00000000000C                 244 PGRPAY   DC    PL6'0'              PACKED CALCULATED GROSS PAY                              
+ 0017F9 000C                         245 PPNUM    DC    PL2'0'              PACKED PAGE NUMBER                                       
+ 0017FB 00000C                       246 TEMPCTR  DC    PL3'0'              PACKED TEMP LINE COUNTER                                 
+ 0017FE 000000000000000C             247 TDI      DC    PL8'0'              PACKED TEMP DEDUCTIONS                                   
+ 001806 000000000000000C             248 TDI2     DC    PL8'0'              PACKED TEMP BONUSES                                      
+ 00180E 0000000000000000             249 TDI3     DC    PL11'0'             PACKED TEMP GROSS PAY                                    
+ 001820                              250          DS    0D                  FORCE NEXT FIELD TO DOUBLEWORD                           
+ 001820 000000000000000C             251 PCVB     DC    PL8'0'              PACKED CVB EMPLOYEE COUNT                                
+                                     252 ****************                                                                            
+                                     253 * OUTPUT LINES *                                                                            
+                                     254 ****************                                                                            
+ 001828                              255 DETAIL1  DS    0H                  EMPLOYEE DETAIL WITH DOUBLE SPACING                      
+ 001828                              256 OEMPID   DS    CL10                OUTPUT ID                                                
+ 001832 40404040404040               257          DC    7C' '               SPACE                                                    
+ 001839                              258 OEMPNME  DS    CL25                OUTPUT NAME                                              
+ 001852 4040404040404040             259          DC    8C' '               SPACE                                                    
+ 00185A                              260 OHRPAY   DS    CL7                 OUTPUT HOURLY RATE                                       
+ 001861 4040404040404040             261          DC    8C' '               SPACE                                                    
+ 001869                              262 OHOURS   DS    CL7                 OUTPUT HOURS WORKED                                      
+ 001870 4040404040404040             263          DC    11C' '              SPACE                                                    
+ 00187B                              264 ODEDUCT  DS    CL7                 OUTPUT DEDUCTIONS                                        
+ 001882 4040404040404040             265          DC    11C' '              SPACE                                                    
+ 00188D                              266 OBONUS   DS    CL7                 OUTPUT BONUS                                             
+ 001894 4040404040404040             267          DC    10C' '              SPACE                                                    
+ 00189E                              268 OGRPAY   DS    CL15' '             OUTPUT GROSS PAY                                         
+                                     269 ************************                                                                    
+                                     270 * BOTTOM TOTALS OUTPUT *                                                                    
+                                     271 ************************                                                                    
+ 0018AD F0                           272 TOTALS1  DC    C'0'                 START TOTAL COUNT OUTPUT                                
+ 0018AE 4040E3D6E3C1D3E2             273          DC    CL9'  TOTALS:'                                                               
+ 0018B7 4040404040                   274          DC    5C' '                SPACE                                                   
+ 0018BC                              275 OEMPCTR  DS    CL7' '               RESULT OF EMPLOYEE COUNT                                
+ 0018C3 C5D4D7D3D6E8C5C5             276          DC    CL11'EMPLOYEE(S)'                                                            
+ 0018CE 4040404040404040             277          DC    47C' '               SPACE                                                   
+ 0018FD                              278 OTOTDED  DS    CL10' '              RESULT OF TOTAL DEDUCTIONS                              
+ 001907 4040404040404040             279          DC    8C' '                SPACE                                                   
+ 00190F                              280 OTOTBON  DS    CL10' '              RESULT OF TOTAL BONUSES                                 
+ 001919 4040404040404040             281          DC    11C' '               SPACE                                                   
+1                                                                                                               PAGE    6            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+ 001924                              282 OTOTGRP  DS    CL14' '              RESULT OF TOTAL GROSS PAY                               
+ 001932 40                           283          DC    1C' '                                                                        
+                                     284 *****************                                                                           
+                                     285 * HEADER OUTPUT *                                                                           
+                                     286 *****************                                                                           
+ 001933 F0                           287 TITLEH   DC    C'0'                                                                         
+ 001934 4040404040404040             288          DC    55C' '                                                                       
+ 00196B C5D4D7D3D6E8C5C5             289          DC    CL23'EMPLOYEE PAYROLL REPORT'                                                
+ 001982 4040404040404040             290          DC    55C' '                                                                       
+ 0019B9 F0                           291 PAGENUM  DC    C'0'                                                                         
+ 0019BA 4040404040404040             292          DC    123C' '                                                                      
+ 001A35 D7C1C7C57A                   293          DC    CL5'PAGE:'                                                                   
+ 001A3A                              294 OPNUM    DS    CL4' '                                                                       
+ 001A3E 40                           295          DC    1C' '                                                                        
+ 001A3F F0                           296 COLHDR1  DC    C'0'                                                                         
+ 001A40 40C5D4D7D3D6E8C5             297          DC    CL9' EMPLOYEE'                                                               
+ 001A49 40404040404040               298          DC    7C' '                                                                        
+ 001A50 C5D4D7D3D6E8C5C5             299          DC    CL25'EMPLOYEE                 '                                              
+ 001A69 4040404040404040             300          DC    8C' '                                                                        
+ 001A71 40C8D6E4D9D3E8               301          DC    CL7' HOURLY'                                                                 
+ 001A78 4040404040404040             302          DC    8C' '                                                                        
+ 001A80 4040C8D6E4D9E2               303          DC    CL7'  HOURS'                                                                 
+ 001A87 4040404040404040             304          DC    8C' '                                                                        
+ 001A8F 40C4C5C4E4C3E3C9             305          DC    CL10' DEDUCTION'                                                             
+ 001A99 4040404040404040             306          DC    8C' '                                                                        
+ 001AA1 4040404040C2D6D5             307          DC    CL10'     BONUS'                                                             
+ 001AAB 4040404040404040             308          DC    8C' '                                                                        
+ 001AB3 4040404040C5D4D7             309          DC    CL18'     EMPLOYEE PAY '                                                     
+                                     310 *                                                                                           
+ 001AC5 F0                           311 COLHDR2  DC    C'0'     D  ERAR    SECOND HEADER LINE                                       
+ 001AC6 40C9C44040404040             312          DC    CL9' ID      '                                                               
+ 001ACF 40404040404040               313          DC    7C' '                                                                        
+ 001AD6 D5C1D4C540404040             314          DC    CL25'NAME                     '                                              
+ 001AEF 4040404040404040             315          DC    8C' '                                                                        
+ 001AF7 404040D9C1E3C5               316          DC    CL7'   RATE'                                                                 
+ 001AFE 4040404040404040             317          DC    8C' '                                                                        
+ 001B06 40E6D6D9D2C5C4               318          DC    CL7' WORKED'                                                                 
+ 001B0D 4040404040404040             319          DC    8C' '                                                                        
+ 001B15 40404040C1D4D6E4             320          DC    CL10'    AMOUNT'                                                             
+ 001B1F 4040404040404040             321          DC    8C' '                                                                        
+ 001B27 40404040C1D4D6E4             322          DC    CL10'    AMOUNT'                                                             
+ 001B31 4040404040404040             323          DC    8C' '                                                                        
+ 001B39 4040404040404040             324          DC    CL18'           AMOUNT '                                                     
+                                     325 *                                                                                           
+ 001B4B 40                           326 HYPHENS1 DC    C' '                TOP HYPHEN OUTPUT                                        
+ 001B4C 4060606060606060             327          DC    CL9' --------'                                                               
+ 001B55 40404040404040               328          DC    7C' '                                                                        
+ 001B5C 6060606060606060             329          DC    CL25'------------------------'                                               
+ 001B75 4040404040404040             330          DC    8C' '                                                                        
+ 001B7D 60606060606060               331          DC    CL7'-------'                                                                 
+ 001B84 4040404040404040             332          DC    8C' '                                                                        
+ 001B8C 60606060606060               333          DC    CL7'-------'                                                                 
+ 001B93 4040404040404040             334          DC    8C' '                                                                        
+ 001B9B 6060606060606060             335          DC    CL10'----------'                                                             
+ 001BA5 4040404040404040             336          DC    8C' '                                                                        
+ 001BAD 6060606060606060             337          DC    CL10'----------'                                                             
+ 001BB7 4040404040404040             338          DC    8C' '                                                                        
+1                                                                                                               PAGE    7            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+ 001BBF 6060606060606060             339          DC    CL18'----------------- '                                                     
+                                     340 *                                                                                           
+ 001BD1 F0                           341 HYPHENS2 DC    C'0'                  BOTTOM HYPHEN OUTPUT                                   
+ 001BD2 4060606060606060             342          DC    CL9' --------'                                                               
+ 001BDB 40404040404040               343          DC    7C' '                                                                        
+ 001BE2 6060606060606060             344          DC    CL25'------------------------'                                               
+ 001BFB 4040404040404040             345          DC    38C' '                                                                       
+ 001C21 6060606060606060             346          DC    CL10'----------'                                                             
+ 001C2B 4040404040404040             347          DC    8C' '                                                                        
+ 001C33 6060606060606060             348          DC    CL10'----------'                                                             
+ 001C3D 4040404040404040             349          DC    8C' '                                                                        
+ 001C45 6060606060606060             350          DC    CL18'----------------- '                                                     
+                                     351 *                                                                                           
+ 001C57 F0                           352 AVELINE  DC    C'0'                                                                         
+ 001C58 C1E5C5D9C1C7C5E2             353          DC    CL9'AVERAGES:'                                                               
+ 001C61 4040404040404040             354          DC    67C' '                                                                       
+ 001CA4                              355 AVEDED   DS    CL13' '                                                                      
+ 001CB1 4040404040                   356          DC    5C' '                                                                        
+ 001CB6                              357 AVEBON   DS    CL13' '                                                                      
+ 001CC3 40404040                     358          DC    4C' '                                                                        
+ 001CC7                              359 AVEG     DS    CL21' '                                                                      
+ 001CDC 40                           360          DC    1C' '                                                                        
+                                     361 *                                                                                           
+                                     362 ********************************************************************                        
+                                     363 *                                                                  *                        
+                                     364 *       ASSIGNMENT11                                               *                        
+                                     365 *                                                                  *                        
+                                     366 * PROGRAMMER NAME: ANTONY PIERSON                                  *                        
+                                     367 *                                                                  *                        
+                                     368 * DATE DUE:        05/09/2018                                      *                        
+                                     369 *                                                                  *                        
+                                     370 * PROGRAM NAME:    CALCPAY                                         *                        
+                                     371 *                                                                  *                        
+                                     372 * FUNCTION:        EXTERNAL SUBROUTINES TO CALCULATE PAYROLL FOR   *                        
+                                     373 *                  A BUSINESS.                                     *                        
+                                     374 *                                                                  *                        
+                                     375 * INPUT:           HOURLY PAY RATE, HOURS WORKED,PAY PERIOD,       *                        
+                                     376 *                  DEDUCTION AMOUNT AND BONUS AMOUNT,WITH THE 3    *                        
+                                     377 *                  DOLLAR AMOUNTS ROUNDED TO THE WHOLE DOLLAR      *                        
+                                     378 *                                                                  *                        
+                                     379 * OUTPUT:          NONE                                            *                        
+                                     380 *                                                                  *                        
+                                     381 * ENTRY CONDS:     NONE                                            *                        
+                                     382 *                                                                  *                        
+                                     383 * REGISTER USAGE:  R1 - R15                                        *                        
+                                     384 *                                                                  *                        
+                                     385 * EXIT CONDS:      NONE                                            *                        
+                                     386 *                                                                  *                        
+                                     387 * NOTES:           NONE                                            *                        
+                                     388 *                                                                  *                        
+                                     389 ********************************************************************                        
+ 001CE0                              390 CALCPAY  CSECT                                                                              
+ 001CE0 90EC D00C            0000C   391          STM   14,12,12(13)   SAVE REGS IN CALLER'S SAVE AREA                               
+ 001CE4 18CF                         392          LR    12,15          COPY CSECT ADDRESS INTO R12                                   
+ 001CE0                              393          USING CALCPAY,12     ESTABLISH R12 AS THE BASE REG                                 
+ 001CE6 41E0 C048            01D28   394          LA    14,CPAYSAVE    R14 POINTS TO THIS CSECT'S SAVE AREA                          
+ 001CEA 50E0 D008            00008   395          ST    14,8(,13)      STORE ADDRESS OF THIS CSECT'S SAVE AREA                       
+1                                                                                                               PAGE    8            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+ 001CEE 50D0 E004            00004   396          ST    13,4(,14)      STORE ADDRESS OF CALLER'S SAVE AREA                           
+ 001CF2 18DE                         397          LR    13,14                                                                        
+                                     398 *                                                                                           
+ 001CF4 9826 1000            00000   399          LM    2,6,0(1)            LOAD REGISTERS 2-6                                       
+                                     400 *                                                                                           
+ 001CF8 F852 2000 6000 00000 00000   401          ZAP   0(6,2),0(3,6)       MOVE HOURLY RATE TO GROSS PAY                            
+ 001CFE FC52 2000 3000 00000 00000   402          MP    0(6,2),0(3,3)       MULTIPLY HOURLY RATE BY HOURS                            
+ 001D04 F055 2000 003E 00000 0003E   403          SRP   0(6,2),64-2,5       SHIFT PRODUCT BACK TO 2 DECIMALS                         
+ 001D0A FB52 2000 4000 00000 00000   404          SP    0(6,2),0(3,4)       SUBTRACT DEDUCTIONS                                      
+ 001D10 FA52 2000 5000 00000 00000   405          AP    0(6,2),0(3,5)       ADD BONUS                                                
+                                     406 *                                                                                           
+ 001D16 1BFF                         407          SR    15,15               R15 = RETURN CODE OF 0                                   
+ 001D18 58D0 D004            00004   408          L     13,4(,13)           POINT R13 TO CALLER'S SAVE AREA                          
+ 001D1C 58E0 D00C            0000C   409          L     14,12(,13)          RESTORE REGISTER 14                                      
+ 001D20 980C D014            00014   410          LM    0,12,20(13)         RESTORE R0 THRU R12                                      
+ 001D24 07FE                         411          BR    14                  RETURN TO CALLER                                         
+                                     412 *                                                                                           
+                                     413          LTORG                                                                              
+                                     414 *                                                                                           
+ 001D28 FFFFFFFFFFFFFFFF             415 CPAYSAVE DC    18F'-1'                                                                      
+                                     416 *                                                                                           
+                                     417 ********************************************************************                        
+                                     418 *                                                                  *                        
+                                     419 *       ASSIGNMENT11                                               *                        
+                                     420 *                                                                  *                        
+                                     421 * PROGRAMMER NAME: ANTONY PIERSON                                  *                        
+                                     422 *                                                                  *                        
+                                     423 * DATE DUE:        05/09/2018                                      *                        
+                                     424 *                                                                  *                        
+                                     425 * PROGRAM NAME:    CALCAVGS                                        *                        
+                                     426 *                                                                  *                        
+                                     427 * FUNCTION:        EXTERNAL SUBROUTINES TO CALCULATE AVERAGES      *                        
+                                     428 *                                                                  *                        
+                                     429 * INPUT:           TOTAL DEDUCTION AMOUNT, TOTAL BONUS AMOUNT,     *                        
+                                     430 *                  TOTAL GROSS PAY AMOUNT                          *                        
+                                     431 *                                                                  *                        
+                                     432 * OUTPUT:          NONE                                            *                        
+                                     433 *                                                                  *                        
+                                     434 * ENTRY CONDS:     NONE                                            *                        
+                                     435 *                                                                  *                        
+                                     436 * REGISTER USAGE:  R1 - R15                                        *                        
+                                     437 *                                                                  *                        
+                                     438 * EXIT CONDS:      NONE                                            *                        
+                                     439 *                                                                  *                        
+                                     440 * NOTES:           NONE                                            *                        
+                                     441 *                                                                  *                        
+                                     442 ********************************************************************                        
+ 001D70                              443 CALCAVGS CSECT                                                                              
+ 001D70 90EC D00C            0000C   444          STM   14,12,12(13)   SAVE REGS IN CALLER'S SAVE AREA                               
+ 001D74 18CF                         445          LR    12,15          COPY CSECT ADDRESS INTO R12                                   
+ 001D70                              446          USING CALCAVGS,12    ESTABLISH R12 AS THE BASE REG                                 
+ 001D76 41E0 C080            01DF0   447          LA    14,AVGSSAVE    R14 POINTS TO THIS CSECT'S SAVE AREA                          
+ 001D7A 50E0 D008            00008   448          ST    14,8(,13)      STORE ADDRESS OF THIS CSECT'S SAVE AREA                       
+ 001D7E 50D0 E004            00004   449          ST    13,4(,14)      STORE ADDRESS OF CALLER'S SAVE AREA                           
+ 001D82 18DE                         450          LR    13,14                                                                        
+                                     451 *                                                                                           
+ 001D84 9829 1000            00000   452          LM    2,9,0(1)            LOAD REGISTERS 2-9                                       
+1                                                                                                               PAGE    9            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                     453 *                                                                                           
+ 001D88 F822 3000 5000 00000 00000   454          ZAP   0(3,3),0(3,5)       PUT LINE COUNT IN BIGGER FIELD                           
+ 001D8E F020 3000 0002 00000 00002   455          SRP   0(3,3),2,0          EVEN UP DECIMAL PLACES                                   
+ 001D94 F873 4000 2000 00000 00000   456          ZAP   0(8,4),0(4,2)       PUT TOTAL DEDUCTION IN BIG FIELD                         
+ 001D9A F070 4000 0003 00000 00003   457          SRP   0(8,4),3,0          EVEN UP DECIMAL PLACES                                   
+ 001DA0 FD72 4000 3000 00000 00000   458          DP    0(8,4),0(3,3)       DIVIDE DEDUCTION BY LINE COUNT                           
+ 001DA6 F045 4000 003F 00000 0003F   459          SRP   0(5,4),64-1,5       SHIFT BACK 1 TO RIGHT WITH ROUND                         
+ 001DAC F873 8000 6000 00000 00000   460          ZAP   0(8,8),0(4,6)       PUT TOTAL BONUSES IN BIG FIELD                           
+ 001DB2 F070 8000 0003 00000 00003   461          SRP   0(8,8),3,0          EVEN UP DECIMAL PLACES                                   
+ 001DB8 FD72 8000 3000 00000 00000   462          DP    0(8,8),0(3,3)       DIVIDE BONUSES BY LINE COUNT                             
+ 001DBE F045 8000 003F 00000 0003F   463          SRP   0(5,8),64-1,5       SHIFT BACK 1 TO RIGHT WITH ROUND                         
+ 001DC4 F8A6 9000 7000 00000 00000   464          ZAP   0(11,9),0(7,7)      PUT TOTAL GROSS PAY IN BIG FIELD                         
+ 001DCA F0A0 9000 0003 00000 00003   465          SRP   0(11,9),3,0         EVEN UP DECIMAL PLACES                                   
+ 001DD0 FDA2 9000 3000 00000 00000   466          DP    0(11,9),0(3,3)      DIVIDE GROSS PAY BY LINE COUNT                           
+ 001DD6 F075 9000 003F 00000 0003F   467          SRP   0(8,9),64-1,5       SHIFT BACK 1 TO RIGHT WITH ROUND                         
+                                     468 *                                                                                           
+ 001DDC 1BFF                         469          SR    15,15               R15 = RETURN CODE OF 0                                   
+ 001DDE 58D0 D004            00004   470          L     13,4(,13)           POINT R13 TO CALLER'S SAVE AREA                          
+ 001DE2 58E0 D00C            0000C   471          L     14,12(,13)          RESTORE REGISTER 14                                      
+ 001DE6 980C D014            00014   472          LM    0,12,20(13)         RESTORE R0 THRU R12                                      
+ 001DEA 07FE                         473          BR    14                  RETURN TO CALLER                                         
+                                     474 *                                                                                           
+                                     475          LTORG                                                                              
+                                     476 *                                                                                           
+ 001DF0                              477 AVGSSAVE DS    18F                                                                          
+                                     478 *                                                                                           
+                                     479 ********************************************************************                        
+                                     480 *                                                                  *                        
+                                     481 *       ASSIGNMENT11                                               *                        
+                                     482 *                                                                  *                        
+                                     483 * PROGRAMMER NAME: ANTONY PIERSON                                  *                        
+                                     484 *                                                                  *                        
+                                     485 * DATE DUE:        05/09/2018                                      *                        
+                                     486 *                                                                  *                        
+                                     487 * PROGRAM NAME:    BUILDTBL                                        *                        
+                                     488 *                                                                  *                        
+                                     489 * FUNCTION:        EXTERNAL SUBROUTINES TO CALCULATE AVERAGES      *                        
+                                     490 *                                                                  *                        
+                                     491 * INPUT:           TOTAL DEDUCTION AMOUNT, TOTAL BONUS AMOUNT,     *                        
+                                     492 *                  TOTAL GROSS PAY AMOUNT                          *                        
+                                     493 *                                                                  *                        
+                                     494 * OUTPUT:          NONE                                            *                        
+                                     495 *                                                                  *                        
+                                     496 * ENTRY CONDS:     NONE                                            *                        
+                                     497 *                                                                  *                        
+                                     498 * REGISTER USAGE:  R1 - R15                                        *                        
+                                     499 *                                                                  *                        
+                                     500 * EXIT CONDS:      NONE                                            *                        
+                                     501 *                                                                  *                        
+                                     502 * NOTES:           NONE                                            *                        
+                                     503 *                                                                  *                        
+                                     504 ********************************************************************                        
+ 001E38                              505 BUILDTBL CSECT                                                                              
+ 001E38 90EC D00C            0000C   506          STM   14,12,12(13)   SAVE REGS IN CALLER'S SAVE AREA                               
+ 001E3C 18CF                         507          LR    12,15          COPY CSECT ADDRESS INTO R12                                   
+ 001E38                              508          USING BUILDTBL,12    ESTABLISH R12 AS THE BASE REG                                 
+ 001E3E 41E0 C054            01E8C   509          LA    14,BTBLSAVE    R14 POINTS TO THIS CSECT'S SAVE AREA                          
+1                                                                                                               PAGE   10            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+ 001E42 50E0 D008            00008   510          ST    14,8(,13)      STORE ADDRESS OF THIS CSECT'S SAVE AREA                       
+ 001E46 50D0 E004            00004   511          ST    13,4(,14)      STORE ADDRESS OF CALLER'S SAVE AREA                           
+ 001E4A 18DE                         512          LR    13,14                                                                        
+                                     513 *                                                                                           
+ 001E4C 9823 1000            00000   514          LM    2,3,0(1)               LOAD REGISTERS 2-3                                    
+                                     515 *                                                                                           
+ 001E50 E000 C09C 0050 01ED4         516          XREAD INPUTREC,80            READ FIRST RECORD                                     
+                                     517 *                                                                                           
+ 001E56 4770 C03C            01E74   518 LOOP4    BNZ   ENDLOOP4               BRANCH TO BOTTOM IF NO MORE RECS                      
+                                     519 *                                                                                           
+ 001E5A FA20 3000 C050 00000 01E88   520          AP    0(3,3),=PL1'1'         ADD 1 TO EMPLOYEE COUNTER                             
+                                     521 *                                                                                           
+ 001E60 D234 2000 C09C 00000 01ED4   522          MVC   0(53,2),INPUTREC       MOVE RECORD INTO TABLE                                
+                                     523 *                                                                                           
+ 001E66 4120 2035            00035   524          LA    2,53(,2)               INCREMENT TABLE POINTER                               
+                                     525 *                                                                                           
+ 001E6A E000 C09C 0050 01ED4         526          XREAD INPUTREC,80         READ NEXT RECORD                                         
+                                     527 *                                                                                           
+ 001E70 47F0 C01E            01E56   528          B     LOOP4                                                                        
+                                     529 *                                                                                           
+ 001E74 1BFF                         530 ENDLOOP4 SR    15,15               R15 = RETURN CODE OF 0                                   
+ 001E76 58D0 D004            00004   531          L     13,4(,13)           POINT R13 TO CALLER'S SAVE AREA                          
+ 001E7A 58E0 D00C            0000C   532          L     14,12(,13)          RESTORE REGISTER 14                                      
+ 001E7E 980C D014            00014   533          LM    0,12,20(13)         RESTORE R0 THRU R12                                      
+ 001E82 07FE                         534          BR    14                  RETURN TO CALLER                                         
+                                     535 *                                                                                           
+                                     536          LTORG                                                                              
+ 001E88 1C                           537                =PL1'1'                                                                      
+                                     538 *                                                                                           
+ 001E8C                              539 BTBLSAVE DS    18F                                                                          
+                                     540 *                                                                                           
+ 001ED4 4040404040404040             541 INPUTREC DC    80C' '                                                                       
+                                     542 *                                                                                           
+                                     543          END   PAYROLL                                                                      
+0***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+0*** DYNAMIC CORE AREA USED:  LOW:   29772 HIGH:    2284 LEAVING:  461512 FREE BYTES. AVERAGE:       58 BYTES/STMT ***               
+0*** ASSEMBLY TIME =    0.002 SECS,   272000 STATEMENTS/SEC ***                                                                      
+0*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+0                                                       EMPLOYEE PAYROLL REPORT                                                      
+0                                                                                                                           PAGE:   1
+  EMPLOYEE       EMPLOYEE                          HOURLY          HOURS         DEDUCTION             BONUS             EMPLOYEE PAY
+0 ID             NAME                                RATE         WORKED            AMOUNT            AMOUNT                   AMOUNT
+  --------       ------------------------         -------        -------        ----------        ----------        -----------------
+0 02345245       JOAN TOWER                        $15.25          80.50            $25.10           $500.22                $1,702.75
+0 03456322       WOLFGANG AMADEUS MOZART           $19.00          80.75             $0.00            $13.44                $1,547.69
+0 04032233       RICHARD STRAUSS                   $10.29          80.00            $31.23           $254.00                $1,045.97
+0 06465120       AMY BEACH                         $22.00          80.00            $15.09           $900.25                $2,645.16
+0 06560023       DAME ETHEL SMYTHE                 $23.75          28.25            $34.15            $70.85                  $707.64
+1 13870322       PETER ILYICH TCHAIKOVSKY          $22.95          80.50            $21.25             $0.00                $1,826.23
+0 14966277       ANTON BRUCKNER                    $20.20          78.67             $0.79           $210.23                $1,798.57
+0 33345245       JOAN TOWER                        $15.25          80.50            $25.10           $500.22                $1,702.75
+0 03456422       WOLFGANG AMADEUS MOZART           $19.00          80.75             $0.00            $13.44                $1,547.69
+0 04232233       RICHARD STRAUSS                   $10.29          80.00            $31.23           $254.00                $1,045.97
+0 06466120       AMY BEACH                         $22.00          80.00            $15.09           $900.25                $2,645.16
+0 06550023       DAME ETHEL SMYTHE                 $23.75          28.25            $34.15            $70.85                  $707.64
+0 13899322       PETER ILYICH TCHAIKOVSKY          $22.95          80.50            $21.25             $0.00                $1,826.23
+0 94966277       ANTON BRUCKNER                    $20.20          78.67             $0.79           $210.23                $1,798.57
+0 02348245       JOAN TOWER                        $15.25          80.50            $25.10           $500.22                $1,702.75
+0                                                       EMPLOYEE PAYROLL REPORT                                                      
+0                                                                                                                           PAGE:   2
+  EMPLOYEE       EMPLOYEE                          HOURLY          HOURS         DEDUCTION             BONUS             EMPLOYEE PAY
+0 ID             NAME                                RATE         WORKED            AMOUNT            AMOUNT                   AMOUNT
+  --------       ------------------------         -------        -------        ----------        ----------        -----------------
+0 13456322       WOLFGANG AMADEUS MOZART           $19.00          80.75             $0.00            $13.44                $1,547.69
+0 34032233       RICHARD STRAUSS                   $10.29          80.00            $31.23           $254.00                $1,045.97
+0 46465120       AMY BEACH                         $22.00          80.00            $15.09           $900.25                $2,645.16
+0 36560023       DAME ETHEL SMYTHE                 $23.75          28.25            $34.15            $70.85                  $707.64
+0 13870432       PETER ILYICH TCHAIKOVSKY          $22.95          80.50            $21.25             $0.00                $1,826.23
+0 14963277       ANTON BRUCKNER                    $20.20          78.67             $0.79           $210.23                $1,798.57
+0 02344245       JOAN TOWER                        $15.25          80.50            $25.10           $500.22                $1,702.75
+0 03446327       WOLFGANG AMADEUS MOZART           $19.00          80.75             $0.00            $13.44                $1,547.69
+0 04033233       RICHARD STRAUSS                   $10.29          80.00            $31.23           $254.00                $1,045.97
+0 01465120       AMY BEACH                         $22.00          80.00            $15.09           $900.25                $2,645.16
+0 01560023       DAME ETHEL SMYTHE                 $23.75          28.25            $34.15            $70.85                  $707.64
+0 13370322       PETER ILYICH TCHAIKOVSKY          $22.95          80.50            $21.25             $0.00                $1,826.23
+0 24966277       ANTON BRUCKNER                    $20.20          78.67             $0.79           $210.23                $1,798.57
+0 02233245       JOAN TOWER                        $15.25          80.50            $25.10           $500.22                $1,702.75
+0 03452322       WOLFGANG AMADEUS MOZART           $19.00          80.75             $0.00            $13.44                $1,547.69
+0                                                       EMPLOYEE PAYROLL REPORT                                                      
+0                                                                                                                           PAGE:   3
+  EMPLOYEE       EMPLOYEE                          HOURLY          HOURS         DEDUCTION             BONUS             EMPLOYEE PAY
+1 ID             NAME                                RATE         WORKED            AMOUNT            AMOUNT                   AMOUNT
+  --------       ------------------------         -------        -------        ----------        ----------        -----------------
+0 02235533       RICHARD STRAUSS                   $10.29          80.00            $31.23           $254.00                $1,045.97
+0 06455660       AMY BEACH                         $22.00          80.00            $15.09           $900.25                $2,645.16
+0 06564453       DAME ETHEL SMYTHE                 $23.75          28.25            $34.15            $70.85                  $707.64
+0 13873322       PETER ILYICH TCHAIKOVSKY          $22.95          80.50            $21.25             $0.00                $1,826.23
+0 14964377       ANTON BRUCKNER                    $20.20          78.67             $0.79           $210.23                $1,798.57
+0 02222245       JOAN TOWER                        $15.25          80.50            $25.10           $500.22                $1,702.75
+0 03454367       WOLFGANG AMADEUS MOZART           $19.00          80.75             $0.00            $13.44                $1,547.69
+0 04882233       RICHARD STRAUSS                   $10.29          80.00            $31.23           $254.00                $1,045.97
+0 06865120       AMY BEACH                         $22.00          80.00            $15.09           $900.25                $2,645.16
+0 08560023       DAME ETHEL SMYTHE                 $23.75          28.25            $34.15            $70.85                  $707.64
+0 83870322       PETER ILYICH TCHAIKOVSKY          $22.95          80.50            $21.25             $0.00                $1,826.23
+0 17966277       ANTON BRUCKNER                    $20.20          78.67             $0.79           $210.23                $1,798.57
+0 --------       ------------------------                                       ----------        ----------        -----------------
+0  TOTALS:         42 EMPLOYEE(S)                                                  $765.66        $11,693.94               $67,644.06
+0AVERAGES:                                                                          $18.23           $278.43                $1,610.57
+0*** EXECUTION TIME =    0.002 SECS.      3040 INSTRUCTIONS EXECUTED -  1520000 INSTRUCTIONS/SEC ***                                 
+0*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+ !! END OF JES SPOOL FILE !!
